@@ -6,6 +6,29 @@ const Wit = require('node-wit').Wit;
 const FB = require('./facebook.js');
 const Config = require('./const.js');
 
+const request = require('request');
+
+const getYelpToken = request.defaults({
+  uri: 'https://api.yelp.com/oauth2/token',
+  method: 'POST',
+  json: true,
+  qs: {
+    grant_type: 'client_credentials'
+    client_id: 'CDYCxbi9KLWG4lckAU_Qaw'
+    client_secret: 'dwFgCYsaGRleYkTyu-Ft0ohtCuI'
+
+  },
+  headers: {
+    'Content-Type': 'application/json'
+  },
+})['access_token'];
+
+const getRestaurants = (location, type_food) => {
+  const token = getYelpToken();
+  return token;
+
+};
+
 const firstEntityValue = (entities, entity) => {
   const val = entities && entities[entity] &&
     Array.isArray(entities[entity]) &&
@@ -72,7 +95,7 @@ const actions = {
   ['findFood'](sessionId, context, cb) {
     // Here should go the api call, e.g.:
     // context.forecast = apiCall(context.loc)
-    context.restaurants = "Luigi's";
+    context.restaurants = getRestaurants(context.loc, context.food);
     cb(context);
   },
 };
