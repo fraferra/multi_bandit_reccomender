@@ -12,14 +12,12 @@ const getYelpToken = request.defaults({
   uri: 'https://api.yelp.com/oauth2/token',
   method: 'POST',
   json: true,
-  qs: {
-    grant_type: 'client_credentials'
-    client_id: 'CDYCxbi9KLWG4lckAU_Qaw'
-    client_secret: 'dwFgCYsaGRleYkTyu-Ft0ohtCuI'
 
-  },
   headers: {
     'Content-Type': 'application/json'
+    'grant_type': 'client_credentials'
+    'client_id': 'CDYCxbi9KLWG4lckAU_Qaw'
+    'client_secret': 'dwFgCYsaGRleYkTyu-Ft0ohtCuI'
   },
 })['access_token'];
 
