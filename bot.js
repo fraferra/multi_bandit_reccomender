@@ -19,10 +19,11 @@ var getYelpToken = request({
   form: {
     'grant_type': 'client_credentials'
   }
-}, function(err, res) {
-  var json = JSON.parse(res.body);
-  console.log("Access Token:", json.access_token);
-});
+})["access_token"];
+//, function(err, res) {
+  //var json = JSON.parse(res.body);
+  //console.log("Access Token:", json.access_token);
+//});
 
 const getRestaurants = (location, type_food) => {
   const token = getYelpToken();
