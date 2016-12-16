@@ -69,10 +69,10 @@ const actions = {
   },
 
   // fetch-weather bot executes
-  ['fetch-weather'](sessionId, context, cb) {
+  ['findFood'](sessionId, context, cb) {
     // Here should go the api call, e.g.:
     // context.forecast = apiCall(context.loc)
-    context.forecast = 'sunny';
+    context.restaurants = "Luigi's";
     cb(context);
   },
 };
