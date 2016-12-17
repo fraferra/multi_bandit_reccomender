@@ -23,6 +23,7 @@ py.stdin.write(JSON.stringify(data));
 py.stdin.end();
 
 
+
 // request({
 //   url: 'https://api.yelp.com/oauth2/token',
 //   method: 'POST',
@@ -39,8 +40,18 @@ py.stdin.end();
 // });
 
 const getRestaurants = (location, type_food) => {
-  const token = getYelpToken;
-  return token;
+  var spawn = require('child_process').spawn,
+    py    = spawn('python', ['search.py']),
+    data = [getYelpToken, type_food, location],
+    restaurants = '';
+
+  py.stdout.on('data', function(data){
+    restaurants = data.toString();
+  });
+
+  py.stdin.write(JSON.stringify(data));
+  py.stdin.end();
+  return restaurants
 
 };
 
