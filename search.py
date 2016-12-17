@@ -13,7 +13,7 @@ def main():
 
     import requests
     #get our data as an array from read_in()
-    data = read_in()
+    lines = read_in()
 
 
     app_id = 'myzQ1TP-TCzRmWi3gx32Dw'
@@ -25,8 +25,8 @@ def main():
 
 
 
-    type_food = data[0]
-    location = data[1]
+    type_food = lines[0]
+    location = lines[1]
     url = 'https://api.yelp.com/v3/businesses/search'
     headers = {'Authorization': 'bearer %s' % access_token}
     params = {'location': location,
@@ -37,9 +37,9 @@ def main():
     resp = requests.get(url=url, params=params, headers=headers)
 
     #return the sum to the output stream
-    sys.stdout.write( ", ".join([x["name"] for x in resp.json()['businesses']]))
+    #sys.stdout.write( ", ".join([x["name"] for x in resp.json()['businesses']]))
     print  ", ".join([x["name"] for x in resp.json()['businesses']])
-    sys.stdout.flush()
+    #sys.stdout.flush()
 
 
 #start process

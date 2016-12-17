@@ -30,31 +30,31 @@ data = ['pizza', 'london'],
 restaurants = 'not_updated';
 
 py.stdout.on('data', function(data){
-  restaurants += data.toString();
+  restaurants = data.toString();
 });
 py.stdin.write(JSON.stringify(data));
 py.stdin.end();
 console.log(restaurants);
 
 
-const getRestaurants = (location, type_food) => {
-  var py;
-  var data;
-  var restaurants;
-  //var spawn = require('child_process').spawn,
-  py  = spawn.spawn('python', ['search.py']),
-  data = [type_food, location],
-  restaurants = 'not_updated';
+// const getRestaurants = (location, type_food) => {
+//   var py;
+//   var data;
+//   var restaurants;
+//   //var spawn = require('child_process').spawn,
+//   py  = spawn.spawn('python', ['search.py']),
+//   data = [type_food, location],
+//   restaurants = 'not_updated';
 
-  py.stdout.on('data', function(data){
-    restaurants += data.toString();
-  });
-  py.stdin.write(JSON.stringify(data));
-  py.stdin.end();
-  return restaurants;
+//   py.stdout.on('data', function(data){
+//     restaurants += data.toString();
+//   });
+//   py.stdin.write(JSON.stringify(data));
+//   py.stdin.end();
+//   return restaurants;
   
 
-};
+// };
 
 const firstEntityValue = (entities, entity) => {
   const val = entities && entities[entity] &&
