@@ -45,11 +45,13 @@ function getRestaurants(location, type_food){
 
   py.stdout.on('data', function(data){
     restaurants = data.toString();
+    break
   });
-  py.stdin.write(JSON.stringify(data));
-  py.stdin.end();
-  console.log(restaurants);
   return restaurants;
+  // py.stdin.write(JSON.stringify(data));
+  // py.stdin.end();
+  // console.log(restaurants);
+  // return restaurants;
   
 
 }
