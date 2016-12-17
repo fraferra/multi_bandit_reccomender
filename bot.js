@@ -7,7 +7,7 @@ const FB = require('./facebook.js');
 const Config = require('./const.js');
 
 const request = require('request');
-const spawn = require('child_process').spawn;
+//const spawn = require('child_process').spawn;
 
 //let getYelpToken;
 
