@@ -7,9 +7,8 @@ const FB = require('./facebook.js');
 const Config = require('./const.js');
 
 const request = require('request');
-var spawn = require('child_process').spawn;
-global.restaurants;
-global.restaurants = "not_updated";
+const spawn = require('child_process').spawn;
+var restaurants = "not_updated";
 //const spawn = require('child_process').spawn;
 
 //let getYelpToken;
@@ -47,12 +46,12 @@ function getRestaurants(location, type_food){
   data = [type_food, location];
 
   py.stdout.on('data', function(data){
-    global.restaurants = data.toString();
+    restaurants = data.toString();
   });
   py.stdin.write(JSON.stringify(data));
   py.stdin.end();
-  console.log(global.restaurants);
-  return global.restaurants;  
+  console.log(restaurants);
+  //return global.restaurants;  
 
 }
 
