@@ -26,21 +26,20 @@ const request = require('request');
 
 
 const getRestaurants = (location, type_food) => {
-  // var spawn = require('child_process').spawn,
-  //   py    = spawn('python', ['search.py']),
-  //   data = [type_food, location],
-  //   restaurants = '';
+  var spawn = require('child_process').spawn,
+    py    = spawn('python', ['search.py']),
+    data = [type_food, location],
+    restaurants = '';
 
-  // py.stdout.on('data', function(data){
-  //   restaurants = data.toString();
-  //   return restaurants;
-  //   console.log(restaurants);
-  // })
-  // return restaurants;
-  // py.stdin.write(JSON.stringify(data));
-  // py.stdin.end();
-  // return restaurants;
-  return "HOLE";
+  py.stdout.on('data', function(data){
+    restaurants = data.toString();
+    return "1";
+    console.log(restaurants);
+  })
+  return "2";
+  py.stdin.write(JSON.stringify(data));
+  py.stdin.end();
+  return "3";
   
 
 };
