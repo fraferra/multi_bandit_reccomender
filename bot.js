@@ -52,7 +52,7 @@ py.stdin.end();
 console.log(restaurants);
   
 
-};
+}
 
 const firstEntityValue = (entities, entity) => {
   const val = entities && entities[entity] &&
