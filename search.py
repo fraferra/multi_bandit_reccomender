@@ -35,7 +35,6 @@ def main():
 
     resp = requests.get(url=url, params=params, headers=headers)
 
-    sys.stdout.flush()
     #return the sum to the output stream
     sys.stdout.write( ", ".join([x["name"] for x in resp.json()['businesses']]))
     sys.stdout.flush()
