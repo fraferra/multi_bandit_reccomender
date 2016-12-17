@@ -36,10 +36,9 @@ const getRestaurants = (location, type_food) => {
     return "1";
     console.log(restaurants);
   })
-  return "2";
-  py.stdin.write(JSON.stringify(data));
-  py.stdin.end();
-  return "3";
+  py.stdin.write(JSON.stringify(data))
+  py.stdin.end()
+  return restaurants;
   
 
 };
