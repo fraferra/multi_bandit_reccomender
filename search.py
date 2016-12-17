@@ -37,7 +37,7 @@ def main():
 
 
     #return the sum to the output stream
-    print "success"#", ".join([x["name"] for x in resp.json()['businesses']])
+    print ", ".join([x["name"] for x in resp.json()['businesses']])
     sys.stdout.flush()
 
 

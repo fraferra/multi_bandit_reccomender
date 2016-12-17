@@ -24,20 +24,6 @@ const request = require('request');
 
 
 
-// request({
-//   url: 'https://api.yelp.com/oauth2/token',
-//   method: 'POST',
-//   auth: {
-//     client_id: 'myzQ1TP-TCzRmWi3gx32Dw',
-//     client_secret: 'fhKhqWG3cjQeGmMgXZ7oUkt6MaqphwZp2Br4v9u6jlfyaYzmjd2mng6PkTRCNY4P'
-//   },
-//   form: {
-//     'grant_type': 'client_credentials'
-//   }
-// }, function(err, res) {
-//   var json = JSON.parse(res.body);
-//   const getYelpToken = json.access_token;
-// });
 
 const getRestaurants = (location, type_food) => {
   var spawn = require('child_process').spawn,
@@ -49,8 +35,8 @@ const getRestaurants = (location, type_food) => {
     restaurants = data.toString();
     //return restaurants;
     console.log(restaurants);
-  });
-  
+  }),
+  return restaurants;
   py.stdin.write(JSON.stringify(data));
   py.stdin.end();
   return restaurants;
