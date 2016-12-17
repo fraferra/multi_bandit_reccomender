@@ -37,7 +37,7 @@ def main():
 
     #return the sum to the output stream
     sys.stdout.write( ", ".join([x["name"] for x in resp.json()['businesses']]))
-    sys.stdout.flush()
+    #sys.stdout.flush()
 
 
 #start process
