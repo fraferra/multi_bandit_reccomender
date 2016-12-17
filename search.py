@@ -13,13 +13,12 @@ def main():
     #get our data as an array from read_in()
     data = read_in()
     access_token = data[0]
-    type_food = data[1]
-    location = data[2]
+    type_food = 'siena'#data[1]
+    location = 'pizza' #data[2]
     url = 'https://api.yelp.com/v3/businesses/search'
     headers = {'Authorization': 'bearer %s' % access_token}
     params = {'location': location
           'term': type_food,
-          'pricing_filter': '1, 2',
           'sort_by': 'rating'
          }
 
