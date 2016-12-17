@@ -39,7 +39,7 @@ var restaurants = "not_updated";
 // console.log(restaurants);
 
 
-const getRestaurants = (location, type_food) => {
+const getRestaurants = function(location, type_food){
 var spawn = require('child_process').spawn,
 py  = spawn('python', ['search.py']),
 data = [type_food, location];
