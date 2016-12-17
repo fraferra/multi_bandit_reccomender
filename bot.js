@@ -7,6 +7,8 @@ const FB = require('./facebook.js');
 const Config = require('./const.js');
 
 const request = require('request');
+var spawn = require('child_process').spawn;
+var restaurants = "not_updated";
 //const spawn = require('child_process').spawn;
 
 //let getYelpToken;
@@ -38,20 +40,18 @@ const request = require('request');
 
 
 function getRestaurants(location, type_food){
-  var spawn = require('child_process').spawn,
+  var py;
+  var data;
   py  = spawn('python', ['search.py']),
-  restaurants = 'not_updated',
   data = [type_food, location];
 
   py.stdout.on('data', function(data){
     restaurants = data.toString();
   });
-  return restaurants;
-  // py.stdin.write(JSON.stringify(data));
-  // py.stdin.end();
-  // console.log(restaurants);
-  // return restaurants;
-  
+  py.stdin.write(JSON.stringify(data));
+  py.stdin.end();
+  console.log(restaurants);
+  return restaurants;  
 
 }
 
@@ -122,7 +122,7 @@ const actions = {
     // Here should go the api call, e.g.:
     // context.forecast = apiCall(context.loc)
     getRestaurants(context.loc, context.food);
-    context.restaurants = getRestaurants(context.loc, context.food);//restaurants;
+    context.restaurants = restaurants;//getRestaurants(context.loc, context.food);
     cb(context);
   },
 };
