@@ -1,6 +1,6 @@
 ## compute_input.py
 
-import sys, json, numpy as np
+import sys, json
 
 #Read data from stdin
 def read_in():

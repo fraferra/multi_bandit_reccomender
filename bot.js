@@ -8,13 +8,13 @@ const Config = require('./const.js');
 
 const request = require('request');
 
-var getYelpToken = require('child_process').spawn,
+var spawn = require('child_process').spawn,
     py    = spawn('python', ['auth.py']),
     data = [],
-    token = '';
+    getYelpToken = '';
 
 py.stdout.on('data', function(data){
-  toekn = data.toString();
+  getYelpToken = data.toString();
 });
 py.stdout.on('end', function(){
   console.log('Sum of numbers=',dataString);
