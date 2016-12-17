@@ -36,8 +36,7 @@ const getRestaurants = (location, type_food) => {
   restaurants = '';
 
   py.stdout.on('data', function(data){
-    restaurants = data.toString()
-Í   console.log(restaurants);
+    restaurants = data.toString();
   });
   py.stdin.write(JSON.stringify(data));
   py.stdin.end();
