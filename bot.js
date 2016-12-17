@@ -20,8 +20,8 @@ const getYelpToken = request({
     'grant_type': 'client_credentials'
   }
 }, function(err, res, body) {
-  var json = JSON.parse(body);
-  console.log("Access Token:", json.access_token);
+  var json = JSON.parse(body)
+  console.log("Access Token:", json.access_token)
   return json.access_token;
 });
 
