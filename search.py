@@ -27,7 +27,7 @@ def main():
 
 
     #return the sum to the output stream
-    print string(resp.json()['businesses'])
+    print ", ".join([x["name"] for x in resp.json()['businesses']])
 
 #start process
 if __name__ == '__main__':
