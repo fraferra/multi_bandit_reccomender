@@ -39,7 +39,7 @@ py.stdin.end();
 // });
 
 const getRestaurants = (location, type_food) => {
-  const token = getYelpToken();
+  const token = getYelpToken;
   return token;
 
 };
