@@ -15,6 +15,7 @@ def main():
     #get our data as an array from read_in()
     data = read_in()
 
+
     app_id = 'myzQ1TP-TCzRmWi3gx32Dw'
     app_secret = 'fhKhqWG3cjQeGmMgXZ7oUkt6MaqphwZp2Br4v9u6jlfyaYzmjd2mng6PkTRCNY4P'
     data = {'grant_type': 'client_credentials',
@@ -37,7 +38,8 @@ def main():
 
     #return the sum to the output stream
     sys.stdout.write( ", ".join([x["name"] for x in resp.json()['businesses']]))
-    #sys.stdout.flush()
+    print  ", ".join([x["name"] for x in resp.json()['businesses']])
+    sys.stdout.flush()
 
 
 #start process

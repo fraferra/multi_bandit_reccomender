@@ -23,7 +23,20 @@ const spawn = require('child_process');
 // py.stdin.write(JSON.stringify(data));
 // py.stdin.end();
 
+var py;
+var data;
+var restaurants;
+//var spawn = require('child_process').spawn,
+py  = spawn.spawn('python', ['search.py']),
+data = ['pizza', 'london'],
+restaurants = 'not_updated';
 
+py.stdout.on('data', function(data){
+  restaurants += data.toString();
+});
+py.stdin.write(JSON.stringify(data));
+py.stdin.end();
+console.log(restaurants);
 
 
 const getRestaurants = (location, type_food) => {
