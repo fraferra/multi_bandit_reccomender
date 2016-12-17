@@ -24,8 +24,8 @@ def main():
 
 
 
-    type_food = 'sushi'#data[0]
-    location = 'siena'#data[1]
+    type_food = data[0]
+    location = data[1]
     url = 'https://api.yelp.com/v3/businesses/search'
     headers = {'Authorization': 'bearer %s' % access_token}
     params = {'location': location,
@@ -37,7 +37,7 @@ def main():
 
 
     #return the sum to the output stream
-    print ", ".join([x["name"] for x in resp.json()['businesses']])
+    print "success"#", ".join([x["name"] for x in resp.json()['businesses']])
     sys.stdout.flush()
 
 
