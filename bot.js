@@ -13,7 +13,7 @@ let getYelpToken;
 var spawn = require('child_process').spawn,
     py    = spawn('python', ['auth.py']),
     data = [],
-    getYelpToken = '';
+    //getYelpToken = '';
 
 py.stdout.on('data', function(data){
   getYelpToken = data.toString();
