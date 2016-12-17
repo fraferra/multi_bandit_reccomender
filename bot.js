@@ -8,7 +8,7 @@ const Config = require('./const.js');
 
 const request = require('request');
 
-var restaurants = "not_updated";
+global.restaurants = "not_updated";
 //const spawn = require('child_process').spawn;
 
 //let getYelpToken;
