@@ -29,8 +29,8 @@ var py;
 const getRestaurants = (location, type_food) => {
   //var spawn = require('child_process').spawn,
   py  = spawn('python', ['search.py']),
-   data = [type_food, location],
-   restaurants = '';
+  var data = [type_food, location],
+  var restaurants = '';
 
   py.stdout.on('data', function(data){
     restaurants = data.toString();
