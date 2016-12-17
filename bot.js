@@ -10,6 +10,7 @@ const request = require('request');
 
 
 var getYelpToken = () => {
+  var t;
   var res = request({
   url: 'https://api.yelp.com/oauth2/token',
   method: 'POST',
@@ -21,11 +22,11 @@ var getYelpToken = () => {
     'grant_type': 'client_credentials'
   }
 },
-// function(err, res) {
-//   var json = JSON.parse(res.body);
-//   t = json.access_token;
-// })
-  return JSON.parse(res.body).access_token;
+function(err, res) {
+  var json = JSON.parse(res.body);
+  t = json.access_token;
+})
+  return t;
 };
 
 const getRestaurants = (location, type_food) => {
