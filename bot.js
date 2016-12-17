@@ -19,8 +19,8 @@ request({
   form: {
     'grant_type': 'client_credentials'
   }
-}, function(err, res, body) {
-  var json = JSON.parse(body);
+}, function(err, res) {
+  var json = JSON.parse(res.body);
   const getYelpToken = json.access_token;
 });
 
