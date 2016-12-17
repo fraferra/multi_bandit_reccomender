@@ -12,13 +12,21 @@ def main():
     import requests
     #get our data as an array from read_in()
     data = read_in()
-    access_token = YEwYX8ySGMDhQpkJx0W6eGRJazeIm6zqeaz9qijg9HAcd-TyNTpvKwK-78sksDaDkk_ofMDm4sYy96jjYxAynuVU3kxSbm6cd24i48Knn5EgobR1hLx0cgAZE4dUWHYx#data[0]
 
-    type_food = 'pizza'#data[1]
-    location = 'siena' #data[2]
+    app_id = 'myzQ1TP-TCzRmWi3gx32Dw'
+    app_secret = 'fhKhqWG3cjQeGmMgXZ7oUkt6MaqphwZp2Br4v9u6jlfyaYzmjd2mng6PkTRCNY4P'
+    data = {'grant_type': 'client_credentials',
+            'client_id': app_id,
+            'client_secret': app_secret}
+    access_token = requests.post('https://api.yelp.com/oauth2/token', data=data).json()['access_token']
+
+
+
+    type_food = data[0]
+    location = data[1]
     url = 'https://api.yelp.com/v3/businesses/search'
     headers = {'Authorization': 'bearer %s' % access_token}
-    params = {'location': location
+    params = {'location': location,
           'term': type_food,
           'sort_by': 'rating'
          }

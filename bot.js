@@ -42,11 +42,12 @@ py.stdin.end();
 const getRestaurants = (location, type_food) => {
   var spawn = require('child_process').spawn,
     py    = spawn('python', ['search.py']),
-    data = [getYelpToken, type_food, location],
+    data = [type_food, location],
     restaurants = '';
 
   py.stdout.on('data', function(data){
     restaurants = data.toString();
+    return restaurants;
   });
 
   py.stdin.write(JSON.stringify(data));
