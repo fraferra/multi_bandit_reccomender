@@ -8,6 +8,7 @@ const Config = require('./const.js');
 
 const request = require('request');
 const spawn = require('child_process').spawn;
+var py;
 //let getYelpToken;
 
 // var spawn = require('child_process').spawn,
