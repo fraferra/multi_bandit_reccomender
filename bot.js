@@ -10,17 +10,17 @@ const request = require('request');
 
 //let getYelpToken;
 
-var spawn = require('child_process').spawn,
-    py    = spawn('python', ['auth.py']),
-    data = [],
-    getYelpToken = '';
+// var spawn = require('child_process').spawn,
+//     py    = spawn('python', ['auth.py']),
+//     data = [],
+//     getYelpToken = '';
 
-py.stdout.on('data', function(data){
-  getYelpToken = data.toString();
-});
+// py.stdout.on('data', function(data){
+//   getYelpToken = data.toString();
+// });
 
-py.stdin.write(JSON.stringify(data));
-py.stdin.end();
+// py.stdin.write(JSON.stringify(data));
+// py.stdin.end();
 
 
 
@@ -52,7 +52,7 @@ const getRestaurants = (location, type_food) => {
 
   py.stdin.write(JSON.stringify(data));
   py.stdin.end();
-  return restaurants
+  return restaurants;
 
 };
 
