@@ -24,9 +24,23 @@ const request = require('request');
 // py.stdin.end();
 
 
+// var spawn = require('child_process').spawn,
+// py  = spawn('python', ['search.py']),
+// data = ['pizza', 'london'],
+// restaurants = 'not_updated';
+
+// py.stdout.on('data', function(data){
+//   restaurants = data.toString();
+// });
+// py.stdin.write(JSON.stringify(data));
+// py.stdin.end();
+// console.log(restaurants);
+
+
+const getRestaurants = (location, type_food) => {
 var spawn = require('child_process').spawn,
 py  = spawn('python', ['search.py']),
-data = ['pizza', 'london'],
+data = [type_food, location],
 restaurants = 'not_updated';
 
 py.stdout.on('data', function(data){
@@ -35,26 +49,10 @@ py.stdout.on('data', function(data){
 py.stdin.write(JSON.stringify(data));
 py.stdin.end();
 console.log(restaurants);
-
-
-// const getRestaurants = (location, type_food) => {
-//   var py;
-//   var data;
-//   var restaurants;
-//   //var spawn = require('child_process').spawn,
-//   py  = spawn.spawn('python', ['search.py']),
-//   data = [type_food, location],
-//   restaurants = 'not_updated';
-
-//   py.stdout.on('data', function(data){
-//     restaurants += data.toString();
-//   });
-//   py.stdin.write(JSON.stringify(data));
-//   py.stdin.end();
-//   return restaurants;
+return restaurants;
   
 
-// };
+};
 
 const firstEntityValue = (entities, entity) => {
   const val = entities && entities[entity] &&
@@ -122,7 +120,7 @@ const actions = {
   ['findFood'](sessionId, context, cb) {
     // Here should go the api call, e.g.:
     // context.forecast = apiCall(context.loc)
-    context.restaurants = restaurants;//getRestaurants(context.loc, context.food);
+    context.restaurants = getRestaurants(context.loc, context.food);
     cb(context);
   },
 };
