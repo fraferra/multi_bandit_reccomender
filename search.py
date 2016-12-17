@@ -9,6 +9,8 @@ def read_in():
     return json.loads(lines[0])
 
 def main():
+    #sys.stdout.flush()
+
     import requests
     #get our data as an array from read_in()
     data = read_in()
@@ -22,8 +24,8 @@ def main():
 
 
 
-    type_food = data[0]
-    location = data[1]
+    type_food = 'sushi'#data[0]
+    location = 'siena'#data[1]
     url = 'https://api.yelp.com/v3/businesses/search'
     headers = {'Authorization': 'bearer %s' % access_token}
     params = {'location': location,
