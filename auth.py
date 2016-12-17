@@ -16,7 +16,7 @@ def main():
     data = {'grant_type': 'client_credentials',
             'client_id': app_id,
             'client_secret': app_secret}
-    token = requests.post('https://api.yelp.com/oauth2/token', data=data)
+    token = requests.post('https://api.yelp.com/oauth2/token', data=data).json()['access_token']
     #get our data as an array from read_in()
     lines = read_in()
 
