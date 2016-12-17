@@ -9,7 +9,7 @@ const Config = require('./const.js');
 const request = require('request');
 
 
-var getYelpToken = request({
+const getYelpToken = request({
   url: 'https://api.yelp.com/oauth2/token',
   method: 'POST',
   auth: {
