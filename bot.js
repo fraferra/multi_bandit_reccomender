@@ -14,8 +14,8 @@ var getYelpToken = () => {
   url: 'https://api.yelp.com/oauth2/token',
   method: 'POST',
   auth: {
-    client_id: 'CDYCxbi9KLWG4lckAU_Qaw',
-    client_secret: 'dwFgCYsaGRleYkTyu-Ft0ohtCuI'
+    client_id: 'myzQ1TP-TCzRmWi3gx32Dw',
+    client_secret: 'fhKhqWG3cjQeGmMgXZ7oUkt6MaqphwZp2Br4v9u6jlfyaYzmjd2mng6PkTRCNY4P'
   },
   form: {
     'grant_type': 'client_credentials'
