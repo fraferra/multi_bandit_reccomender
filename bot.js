@@ -7,7 +7,7 @@ const FB = require('./facebook.js');
 const Config = require('./const.js');
 
 const request = require('request');
-var spawn = require('child_process').spawn;
+const spawn = require('child_process').spawn;
 //let getYelpToken;
 
 // var spawn = require('child_process').spawn,
@@ -27,7 +27,7 @@ var spawn = require('child_process').spawn;
 
 const getRestaurants = (location, type_food) => {
   //var spawn = require('child_process').spawn,
-  py    = spawn('python', ['search.py']),
+  py  = spawn('python', ['search.py']),
    data = [type_food, location],
    restaurants = '';
 
