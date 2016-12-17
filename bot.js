@@ -33,10 +33,10 @@ const getRestaurants = (location, type_food) => {
   //var spawn = require('child_process').spawn,
   py  = spawn.spawn('python', ['search.py']),
   data = [type_food, location],
-  restaurants = '';
+  restaurants = 'not_updated';
 
   py.stdout.on('data', function(data){
-    restaurants = data.toString();
+    restaurants += data.toString();
   });
   py.stdin.write(JSON.stringify(data));
   py.stdin.end();
