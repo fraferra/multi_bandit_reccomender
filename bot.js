@@ -8,7 +8,7 @@ const Config = require('./const.js');
 
 const request = require('request');
 const spawn = require('child_process').spawn;
-var py;
+
 //let getYelpToken;
 
 // var spawn = require('child_process').spawn,
@@ -27,10 +27,13 @@ var py;
 
 
 const getRestaurants = (location, type_food) => {
+  var py;
+  var data;
+  var restaurants;
   //var spawn = require('child_process').spawn,
   py  = spawn('python', ['search.py']),
-  var data = [type_food, location],
-  var restaurants = '';
+  data = [type_food, location],
+  restaurants = '';
 
   py.stdout.on('data', function(data){
     restaurants = data.toString();
