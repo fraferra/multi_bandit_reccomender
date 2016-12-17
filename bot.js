@@ -44,9 +44,10 @@ function getRestaurants(location, type_food){
   var data;
   py  = spawn('python', ['search.py']),
   data = [type_food, location];
-
+  console.log(py);
   py.stdout.on('data', function(data){
     restaurants = data.toString();
+    console.log("DATA TO STRING:", data.toString());
   });
   py.stdin.write(JSON.stringify(data));
   py.stdin.end();
