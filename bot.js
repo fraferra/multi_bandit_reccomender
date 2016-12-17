@@ -9,9 +9,7 @@ const Config = require('./const.js');
 const request = require('request');
 
 
-var getYelpToken = () => {
-  var t;
-  var res = request({
+var getYelpToken = request({
   url: 'https://api.yelp.com/oauth2/token',
   method: 'POST',
   auth: {
@@ -21,13 +19,11 @@ var getYelpToken = () => {
   form: {
     'grant_type': 'client_credentials'
   }
-},
-function(err, res) {
+}, function(err, res) {
   var json = JSON.parse(res.body);
-  t = json.access_token;
-})
-  return t;
-};
+  console.log("Access Token:", json.access_token);
+  return json.access_token;
+});
 
 const getRestaurants = (location, type_food) => {
   const token = getYelpToken();
