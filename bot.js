@@ -26,7 +26,7 @@ const request = require('request');
 
 
 const getRestaurants = (location, type_food) => {
-  var spawn = require('child_process').spawn,
+  var rests = function(){var spawn = require('child_process').spawn,
     py    = spawn('python', ['search.py']),
     data = [type_food, location],
     restaurants = '';
@@ -39,7 +39,8 @@ const getRestaurants = (location, type_food) => {
   return restaurants;
   py.stdin.write(JSON.stringify(data));
   py.stdin.end();
-  return restaurants;
+  return restaurants;}
+  return rests;
   
 
 };
