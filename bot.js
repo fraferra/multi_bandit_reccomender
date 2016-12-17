@@ -50,9 +50,10 @@ const getRestaurants = (location, type_food) => {
     //return restaurants;
     console.log(restaurants);
   });
-  return restaurants;
+  
   py.stdin.write(JSON.stringify(data));
   py.stdin.end();
+  return restaurants;
   
 
 };
