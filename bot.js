@@ -9,6 +9,7 @@ const Config = require('./const.js');
 const request = require('request');
 const spawn = require('child_process').spawn;
 var restaurants = "not_updated";
+var async = require('async');
 //const spawn = require('child_process').spawn;
 
 //let getYelpToken;
@@ -129,14 +130,18 @@ const actions = {
   ['findFood'](sessionId, context, cb) {
     // Here should go the api call, e.g.:
     // context.forecast = apiCall(context.loc)
-    //getRestaurants(context.loc, context.food);
-    var deferred = getRestaurants(context.loc, context.food);
+    getRestaurants(context.loc, context.food);
     context.restaurants = restaurants;//getRestaurants(context.loc, context.food);
-    //cb(context);
-
-    $.when(deferred).done(function() {
+    async.parallel(calls, function(err) {
+    /* this code will run after all calls finished the job or
+       when any of the calls passes an error */
+    if (err)
+        return console.log(err);
     cb(context);
-});
+   });
+
+    
+
   },
 };
 
