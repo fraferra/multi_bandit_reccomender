@@ -103,32 +103,20 @@ const actions = {
       cb();
     }
   },
-  mergeLoc(sessionId, context, entities, message, cb) {
+  merge(sessionId, context, entities, message, cb) {
     // Retrieve the location entity and store it into a context field
     const loc = firstEntityValue(entities, 'location');
     if (loc) {
       context.loc = loc; // store it in context
-    }
-
-    cb(context);
-  },
-
-  mergeFood(sessionId, context, entities, message, cb) {
-    // Retrieve the location entity and store it into a context field
-    const food = firstEntityValue(entities, 'food');
-    if (food) {
-      context.food = food; // store it in context
-    }
-
-    cb(context);
-  },
-  mergeAction(sessionId, context, entities, message, cb) {
-    // Retrieve the location entity and store it into a context field
+    },
     const action = firstEntityValue(entities, 'action');
     if (action) {
       context.action = action; // store it in context
-    }
-
+    },
+    const food = firstEntityValue(entities, 'food');
+    if (food) {
+      context.food = food; // store it in context
+    },
     cb(context);
   },
 
