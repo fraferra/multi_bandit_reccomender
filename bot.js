@@ -44,10 +44,9 @@ function getRestaurants(location, type_food){
   var data;
   py  = spawn('python', ['search.py']),
   data = [type_food, location];
-  console.log(py);
+
   py.stdout.on('data', function(data){
     restaurants = data.toString();
-    console.log("DATA TO STRING:", data.toString());
   });
   py.stdin.write(JSON.stringify(data));
   py.stdin.end();
@@ -104,16 +103,41 @@ const actions = {
       cb();
     }
   },
-  merge(sessionId, context, entities, message, cb) {
+  mergeLoc(sessionId, context, entities, message, cb) {
     // Retrieve the location entity and store it into a context field
     const loc = firstEntityValue(entities, 'location');
+
     if (loc) {
       context.loc = loc; // store it in context
     }
 
+
     cb(context);
   },
 
+  mergeFood(sessionId, context, entities, message, cb) {
+    // Retrieve the location entity and store it into a context field
+    const food = firstEntityValue(entities, 'food');
+
+    if (food) {
+      context.food = food; // store it in context
+    }
+
+
+    cb(context);
+  },
+
+  mergeAction(sessionId, context, entities, message, cb) {
+    // Retrieve the location entity and store it into a context field
+    const action = firstEntityValue(entities, 'action');
+
+    if (action) {
+      context.action = action; // store it in context
+    }
+
+
+    cb(context);
+  },
   error(sessionId, context, error) {
     console.log(error.message);
   },
