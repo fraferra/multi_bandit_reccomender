@@ -44,16 +44,16 @@ function getRestaurants(location, type_food, context, cb){
   var py;
   var data;
   py  = spawn('python', ['search.py']),
-  context.restaurants = 'bla',
   data = [type_food, location];
 
 
   py.stdout.on('data', function(data){
-    context.restaurants = data.toString();
+    restaurants = data.toString();
   });
   py.stdin.write(JSON.stringify(data));
   py.stdin.end();
   console.log(restaurants);
+  context.restaurants = restaurants;
   //return global.restaurants;  
   cb(context);
 
