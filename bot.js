@@ -129,7 +129,7 @@ const actions = {
   ['findFood'](sessionId, context, cb) {
     // Here should go the api call, e.g.:
     // context.forecast = apiCall(context.loc)
-    getRestaurants(context.loc, context.food);
+    //getRestaurants(context.loc, context.food);
     context.restaurants = getRestaurants(context.loc, context.food);
     cb(context);
   },
