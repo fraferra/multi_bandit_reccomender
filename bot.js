@@ -51,7 +51,7 @@ function getRestaurants(location, type_food){
   py.stdin.write(JSON.stringify(data));
   py.stdin.end();
   console.log(restaurants);
-  //return global.restaurants;  
+  return restaurants;  
 
 }
 
@@ -130,8 +130,8 @@ const actions = {
     // Here should go the api call, e.g.:
     // context.forecast = apiCall(context.loc)
     getRestaurants(context.loc, context.food);
-    context.restaurants = restaurants;//getRestaurants(context.loc, context.food);
-    cb(context);
+    context.restaurants = getRestaurants(context.loc, context.food);
+    //cb(context);
   },
 };
 
