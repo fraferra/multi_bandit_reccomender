@@ -40,7 +40,7 @@ var restaurants = "not_updated";
 // console.log(restaurants);
 
 
-function getRestaurants(location, type_food, context, cb){
+const getRestaurants = (location, type_food, context, cb) =>{
   var py;
   var data;
   py  = spawn('python', ['search.py']),
@@ -55,7 +55,7 @@ function getRestaurants(location, type_food, context, cb){
   console.log(restaurants);
   context.restaurants = restaurants;
   //return global.restaurants;  
-  cb(context);
+  //cb(context);
 
 }
 
@@ -135,7 +135,7 @@ const actions = {
     // context.forecast = apiCall(context.loc)
     getRestaurants(context.loc, context.food, context, cb);
     //context.restaurants = restaurants;//getRestaurants(context.loc, context.food);
-    //cb(context);
+    cb(context);
 
   },
   ['cleanContext'](sessionId, context, cb) {
