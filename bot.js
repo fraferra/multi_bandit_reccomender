@@ -137,7 +137,7 @@ const actions = {
     // cb(context);
 
     getRestaurants(context.loc, context.food, context, cb, function(){
-      cb(context, function(){});
+      cb(context);
 
     });
 
