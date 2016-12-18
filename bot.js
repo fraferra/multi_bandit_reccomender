@@ -135,6 +135,15 @@ const actions = {
     cb(context);
 
   },
+  ['cleanContext'](sessionId, context, cb) {
+    // Here should go the api call, e.g.:
+    // context.forecast = apiCall(context.loc)
+   context.loc = null;
+   context.food = null;
+   context.action = null;
+   cb(context);
+
+  }
 };
 
 
