@@ -40,7 +40,7 @@ var restaurants = "not_updated";
 // console.log(restaurants);
 
 
-const getRestaurants = (location, type_food) => {
+const getRestaurants = (location, type_food, cb) => {
   var py;
   var data;
   py  = spawn('python', ['search.py']),
@@ -53,6 +53,7 @@ const getRestaurants = (location, type_food) => {
   py.stdin.end();
   console.log(restaurants);
   //return global.restaurants;  
+  cb();
 
 }
 
@@ -130,7 +131,7 @@ const actions = {
   ['findFood'](sessionId, context, cb) {
     // Here should go the api call, e.g.:
     // context.forecast = apiCall(context.loc)
-    getRestaurants(context.loc, context.food);
+    getRestaurants(context.loc, context.food, cb);
     context.restaurants = restaurants;//getRestaurants(context.loc, context.food);
     cb(context);
 
