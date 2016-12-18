@@ -108,15 +108,15 @@ const actions = {
     const loc = firstEntityValue(entities, 'location');
     if (loc) {
       context.loc = loc; // store it in context
-    },
+    }
     const action = firstEntityValue(entities, 'action');
     if (action) {
       context.action = action; // store it in context
-    },
+    }
     const food = firstEntityValue(entities, 'food');
     if (food) {
       context.food = food; // store it in context
-    },
+    }
     cb(context);
   },
 
