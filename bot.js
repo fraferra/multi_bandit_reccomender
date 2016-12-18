@@ -54,7 +54,7 @@ function getRestaurants(location, type_food, context, cb){
   console.log(restaurants);
   context.restaurants = restaurants;
   //return global.restaurants;  
-  cb();
+  cb(context);
 
 }
 
