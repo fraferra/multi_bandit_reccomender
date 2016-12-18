@@ -118,6 +118,7 @@ const actions = {
       context.food = food; // store it in context
     }
     cb(context);
+    console.log(context);
   },
 
   error(sessionId, context, error) {
